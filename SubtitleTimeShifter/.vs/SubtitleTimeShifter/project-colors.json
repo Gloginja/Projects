@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "aa04cf3e-2c18-44a4-a171-faeb517511a5": {
+      "ProjectGuid": "aa04cf3e-2c18-44a4-a171-faeb517511a5",
+      "DisplayName": "SubtitleTimeShifter",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
