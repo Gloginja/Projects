@@ -1,5 +1,5 @@
 #pragma once
-
+#include <string>
 
 class Time 
 {
@@ -14,6 +14,8 @@ public:
 
 	Time(int, int, double);
 	~Time();
+
+	std::string toString();
 
 	int getHours() {
 		return this->hours;

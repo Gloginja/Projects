@@ -42,9 +42,9 @@ public:
 	}
 
 	T pop() {
-		T datapop;
+		T dataPop;
 		if (count != 0) {
-			datapop = last->data;
+			dataPop = last->data;
 			element* tmp = last;
 			last = last->prev;
 			if (last != nullptr) {
@@ -53,11 +53,29 @@ public:
 			delete tmp;
 			count--;
 		}
-		else datapop = -1;
-		return datapop;
+		else dataPop = nullptr;
+		return dataPop;
 
 	}
    
+	T popFront() {
+		T dataPop;
+		if (count != 0) {
+			dataPop = first->data;
+			element* tmp = first;
+			first = first->next;
+			if (first != nullptr) {
+				first->prev = nullptr;
+			}
+			delete tmp;
+			count--;
+		}
+		else dataPop = nullptr;
+		return dataPop;
+
+	}
+
+
 	int getCount() {
 		return this->count;
 	}

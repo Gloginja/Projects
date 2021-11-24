@@ -11,7 +11,7 @@ class SRT
 	string filePath;
 	double secondsShift;
 	List<SRTComponent*>* list;
-	ifstream* fhandle;
+	fstream* fhandle;
  public:
 
 	 SRT(string);

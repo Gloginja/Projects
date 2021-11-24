@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="List.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="SRT.h" />
     <ClInclude Include="SRTComponent.h" />
     <ClInclude Include="Time.h" />
@@ -151,7 +152,7 @@
     <ClCompile Include="Time.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="primer.srt" />
+    <ResourceCompile Include="SubtitleTimeShifter.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
