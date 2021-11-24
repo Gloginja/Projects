@@ -15,11 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\Desktop\primer.srt">
-      <Filter>Resource Files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="SRT.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -43,5 +38,13 @@
     <ClCompile Include="Time.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SRT.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="primer.srt">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

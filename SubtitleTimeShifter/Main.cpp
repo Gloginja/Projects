@@ -1,26 +1,13 @@
 #include <iostream>
-#include "List.h"
-
+#include "SRT.h"
+#include <regex>
 using namespace std;
 
 int main() {
 
 	//List<int>Lista();
-	List<int>* Test = new List<int>();
-	Test->append(7);
-	Test->append(13);
-	Test->append(21);
-
-	cout << Test->getCount() << endl;
-	cout << Test->pop() << endl;
-	cout << Test->pop() << endl;
-	cout << Test->getCount() << endl;
-	cout << Test->pop() << endl;
-	cout << Test->pop() << endl;
-	Test->append(22);
-	cout << Test->getCount() << endl;
-	cout << Test->pop() << endl;
-	cout << Test->getCount() << endl;
+	SRT* test = new SRT("primer.srt");
+	test->loadFile();
 
 
 	return 0;
