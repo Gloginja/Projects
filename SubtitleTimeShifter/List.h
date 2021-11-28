@@ -17,12 +17,14 @@ class List {
 	};
 	element* first;
 	element* last;
+	element* current;
 
 public:
 	List() {
 		this->count = 0;
 		this->first = nullptr;
 		this->last = nullptr;
+		this->current = nullptr;
 	}
 
 
@@ -32,6 +34,7 @@ public:
 		if (count == 0) {
 			first = tmp;
 			last = tmp;
+			current = tmp;
 		}
 		else {
 			last->next = tmp;
@@ -80,5 +83,26 @@ public:
 		return this->count;
 	}
 
+	void resetCurrent()
+	{
+		this->current = this->first;
+	}
+
+	T getCurrent()
+	{
+		if (this->current != nullptr) return this->current->data;
+		else
+			return nullptr;
+	}
+
+	void nextCurrent()
+	{
+		this->current = this->current->next;
+	}
+
+	bool currentLast()
+	{
+		if (current == nullptr) return true; else return false;
+	}
 
 };

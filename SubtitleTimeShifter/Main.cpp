@@ -7,10 +7,10 @@ using namespace std;
 int main() {
 
 	//List<int>Lista();
-	SRT* test = new SRT("primer.srt");
+	SRT* test = new SRT("primer.srt",-1);
 	test->loadFile();
-	//FILE* lol = fopen("primer.srt","r");
+	test->shift();
 	test->saveFile();
-	//cout << stof("4.323");
+	
 	return 0;
 }

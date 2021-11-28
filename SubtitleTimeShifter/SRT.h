@@ -14,7 +14,7 @@ class SRT
 	fstream* fhandle;
  public:
 
-	 SRT(string);
+	 SRT(string, double);
 
 	 void loadFile();
 

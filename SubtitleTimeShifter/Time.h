@@ -36,6 +36,11 @@ public:
 	void setSeconds(double _seconds) {
 		this->seconds = _seconds;
 	}
+	double getTimeInSeconds();
 
+	void setTimeWithSeconds(double seconds);
 
+	std::string getWhole(double num);
+
+	std::string getDecimal3(double num);
 };

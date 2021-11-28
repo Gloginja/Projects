@@ -2,11 +2,12 @@
 #include <regex>
 
 
-SRT::SRT(string path)
+SRT::SRT(string path, double _secondsShift)
 {
 	this->setFilePath(path);
 	this->list = new List<SRTComponent*>();
 	this->fhandle = new fstream();
+	this->secondsShift = _secondsShift;
 }
 
 
@@ -49,8 +50,8 @@ void SRT::loadFile()
 			if (tmp == "" || fhandle->eof()) break;
 			tmpText += tmp + '\n';
 		}
-		tmpText += '\n';
-		SRTComponent* tmpCmp = new SRTComponent(tmpId, *tmpBegin, *tmpEnd, tmpText);
+		if (!fhandle->eof()) tmpText += '\n'; else tmpText.resize(tmpText.length() - 1);
+		SRTComponent* tmpCmp = new SRTComponent(tmpId, tmpBegin, tmpEnd, tmpText);
 		list->append(tmpCmp);
 	}
 	this->fhandle->close();
@@ -64,8 +65,34 @@ void SRT::saveFile()
 	{
 		tmp = "";
 		SRTComponent* tmpCmp = list->popFront();
-		tmp = to_string(tmpCmp->getID()) + "\n" + tmpCmp->getBegin().toString() + " --> " + tmpCmp->getEnd().toString() + "\n" + tmpCmp->getText();
+		tmp = to_string(tmpCmp->getID()) + "\n" + tmpCmp->getBegin()->toString() + " --> " + tmpCmp->getEnd()->toString() + "\n" + tmpCmp->getText();
 		*(this->fhandle) << tmp;
 	}
 	this->fhandle->close();
+}
+
+void SRT::shift()
+{
+	SRTComponent* tmpCmp;
+	double start;
+	double end;
+	list->resetCurrent();
+	while (!list->currentLast())
+	{
+		tmpCmp = list->getCurrent();
+		start = tmpCmp->getBegin()->getTimeInSeconds();
+		end = tmpCmp->getEnd()->getTimeInSeconds();
+
+		start += secondsShift;
+		end += secondsShift;
+
+		if (start < 0) start = 0; else if (start > 359999.999) start = 359999.999;
+		if (end < 0) end = 0; else if (end > 359999.999) end = 359999.999;
+
+		tmpCmp->getBegin()->setTimeWithSeconds(start);
+		tmpCmp->getEnd()->setTimeWithSeconds(end);
+
+		list->nextCurrent();
+	}
+	list->resetCurrent();
 }

@@ -10,25 +10,25 @@ using namespace std;
 class SRTComponent 
 {
 	int id;
-	Time begin;
-	Time end;
+	Time* begin;
+	Time* end;
 	string text;
 
  public:
 
 	 SRTComponent();
 
-	 SRTComponent(int, Time, Time, string);
+	 SRTComponent(int, Time*, Time*, string);
 
 	 int getID() {
 		 return this->id;
 	 }
 
-	 Time getBegin() {
+	 Time* getBegin() {
 		 return this->begin;
 	 }
 
-	 Time getEnd() {
+	 Time* getEnd() {
 		 return this->end;
 	 }
 
@@ -40,11 +40,11 @@ class SRTComponent
 		 this->id = _id;
 	 }
 
-	 void setBegin(Time _begin) {
+	 void setBegin(Time* _begin) {
 		 this->begin = _begin;
 	 }
 
-	 void setEnd(Time _end) {
+	 void setEnd(Time* _end) {
 		 this->end = _end;
 	 }
 
